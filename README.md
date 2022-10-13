@@ -5,7 +5,6 @@
 Install the Craftsman tool globally. Make sure to close your powershell/command prompt/terminal windows after your initial install!
 ```
 PS C:\> dotnet tool install -g craftsman
-PS C:\> craftsman -h
 PS C:\> craftsman -h  
 USAGE:
     craftsman [OPTIONS] <COMMAND>
@@ -33,7 +32,7 @@ Scaffolding has limited Providers:
 - MySQL (Coming Soon)
 
 ```
-dotnet new example Basic
+craftsman new example Basic
 cd .\Basic\
 docker-compose up --basic
 cd .\Basic\RecipeManagement\src\RecipeManagement
