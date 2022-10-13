@@ -1,0 +1,27 @@
+Entities:      
+  - Name: Ingredient
+    Features:
+      - Type: AddRecord
+      - Type: GetRecord
+      - Type: GetList
+      - Type: UpdateRecord
+      - Type: DeleteRecord
+    Properties:
+      - Name: RecipeId
+        Type: Guid
+        ForeignEntityName: Recipe
+        ForeignEntityPlural: Recipes
+        CanFilter: true
+        CanSort: true
+      - Name: Name
+        Type: string
+        CanFilter: true
+        CanSort: true
+      - Name: Unit
+        Type: string
+        CanFilter: true
+        CanSort: true
+      - Name: Amount
+        Type: double?
+        CanFilter: true
+        CanSort: true

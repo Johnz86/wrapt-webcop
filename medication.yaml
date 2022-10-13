@@ -1,0 +1,74 @@
+DomainName: MedicationStore
+BoundedContexts:
+  - ProjectName: MedicationManagement
+    Port: 5005
+    DbContext:
+      ContextName: MedicationsDbContext
+      DatabaseName: MedicationManagement
+      Provider: Postgres
+    Entities:
+      - Name: Medication
+        Features:
+          - Type: AddRecord
+          - Type: GetRecord
+          - Type: GetList
+          - Type: UpdateRecord
+          - Type: DeleteRecord
+        Properties:
+          - Name: MedicationId
+            Type: Guid?
+            ForeignEntityName: Ingredient
+            ForeignEntityPlural: Ingredients     
+          - Name: Title
+            Type: string
+            CanFilter: true
+            CanSort: true
+          - Name: Directions
+            Type: string
+            CanFilter: true
+            CanSort: true
+          - Name: MedicationSourceLink
+            Type: string
+            CanFilter: true
+            CanSort: true
+          - Name: Description
+            Type: string
+            CanFilter: true
+            CanSort: true
+          - Name: ImageLink
+            Type: string
+            CanFilter: true
+            CanSort: true
+      - Name: Ingredient
+        Features:
+          - Type: AddRecord
+          - Type: GetRecord
+          - Type: GetList
+          - Type: UpdateRecord
+          - Type: DeleteRecord
+        Properties:
+          - Name: IngredientId
+            Type: Guid?
+            ForeignEntityName: Medication
+            ForeignEntityPlural: Medications
+            CanFilter: true
+            CanSort: true
+          - Name: Name
+            Type: string
+            CanFilter: true
+            CanSort: true
+          - Name: Unit
+            Type: string
+            CanFilter: true
+            CanSort: true
+          - Name: Amount
+            Type: double?
+            CanFilter: true
+            CanSort: true          
+    SwaggerConfig:
+      Title: SHS Wrapt.dev Example
+      Description: Our API uses a REST based design, leverages the JSON data format, and relies upon HTTPS for transport. We respond with meaningful HTTP response codes and if an error occurs, we include error details in the response body. API Documentation is at carbonkitchen.com/dev/docs
+      ApiContact:
+        Name: SHS Wrapt.dev Example
+        Email: jan.jakubcik@siemens-healthineers.com
+        Url: https://github.com/johnz86/
